@@ -5,7 +5,7 @@
 ### 获取代码（必须）
 首先fork本仓库到自己的GitHub账户
 
-### 设置账号密码
+### 设置账号密码（必须）
 在Fork后的仓库中点击设置，点击Secret，点击New repository secret分别设置以下变量：
 
 * USER
