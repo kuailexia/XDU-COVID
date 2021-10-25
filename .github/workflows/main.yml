@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  #初次push会测试运行一次
+  push:
+  #遵循corn语法 注意这里是UTC时间，不是北京时间！
+  #北京时间08点对应UTC00点
+  #北京时间12点对应UTC04点
+  #北京时间19点对应UTC11点
+  schedule:
+    - cron: '11 0,4,11 * * *'
+
+jobs:
+  Start-filling:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Prepare Python environment
+        run: pip install -r requirements.txt
+          
+      - name: Run script
+        run: python do.py ${{ secrets.USER }} ${{ secrets.PASSWORD }} ${{ secrets.WXID }}
